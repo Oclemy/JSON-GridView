@@ -48,7 +48,7 @@ public class JSONParser extends AsyncTask<Void,Void,Boolean>{
 
     @Override
     protected Boolean doInBackground(Void... voids) {
-        return this.parse();
+        return parse();
     }
 
     @Override
@@ -59,7 +59,7 @@ public class JSONParser extends AsyncTask<Void,Void,Boolean>{
 
         if(isParsed)
         {
-            //bind
+            //BIND
             ArrayAdapter<String> adapter=new ArrayAdapter<String>(c,android.R.layout.simple_list_item_1,users);
             gv.setAdapter(adapter);
 
@@ -70,14 +70,14 @@ public class JSONParser extends AsyncTask<Void,Void,Boolean>{
                 }
             });
 
-
         }else
         {
             Toast.makeText(c, "Unable To Parse,Check Your Log output", Toast.LENGTH_SHORT).show();
-
         }
+
     }
 
+    //PARSE
     private Boolean parse()
     {
         try
@@ -106,3 +106,20 @@ public class JSONParser extends AsyncTask<Void,Void,Boolean>{
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

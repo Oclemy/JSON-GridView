@@ -51,13 +51,15 @@ public class JSONDownloader extends AsyncTask<Void,Void,String>  {
         super.onPostExecute(jsonData);
 
         pd.dismiss();
-        if(jsonData.startsWith("Error"))
+        if(jsonData.toString().startsWith("Error"))
         {
             String error=jsonData;
             Toast.makeText(c, error, Toast.LENGTH_SHORT).show();
-        }else
+        }
+        else
         {
             //PARSE
+
             new JSONParser(c,jsonData,gv).execute();
         }
     }
@@ -70,11 +72,11 @@ public class JSONDownloader extends AsyncTask<Void,Void,String>  {
             return connection.toString();
         }
 
-
         try
         {
             //ESTABLISH CONNECTION
             HttpURLConnection con= (HttpURLConnection) connection;
+
             if(con.getResponseCode()==con.HTTP_OK)
             {
                 //GET INPUT FROM STREAM
@@ -105,7 +107,6 @@ public class JSONDownloader extends AsyncTask<Void,Void,String>  {
             e.printStackTrace();
             return "Error "+e.getMessage();
         }
-
     }
 }
 
